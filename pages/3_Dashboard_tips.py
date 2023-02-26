@@ -39,8 +39,15 @@ model.fit(X_train,y_train)
 predictions=model.predict(X_test)
 accuracy=r2_score(predictions,y_test)
 
+
+
 bill= st.text_input("Enter the bill in number: ")
-st.write('The bill amount is', bill)
+if bill=='':
+    bill=100
+    st.write('Default bill amount is', bill)
+else:
+    bill=bill
+    st.write('The bill amount is', bill)
 smoker = st.selectbox("Smoker or not: ",dataset.smoker.unique())
 sex = st.selectbox("Sex : ",dataset.smoker.unique())
 
